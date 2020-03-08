@@ -1,15 +1,13 @@
-import React from 'react'
+import React from "react";
 
-import Layout from '../components/layout'
-import { useFetchUser } from '../lib/user'
+import Layout from "../components/layout";
+import { useFetchUser } from "../lib/user";
 
 function Home() {
-  const { user, loading } = useFetchUser()
+  const { user, loading } = useFetchUser();
 
   return (
     <Layout user={user} loading={loading}>
-      <h1>Next.js and Auth0 Example</h1>
-
       {loading && <p>Loading login info...</p>}
 
       {!loading && !user && (
@@ -18,22 +16,25 @@ function Home() {
             To test the login click in <i>Login</i>
           </p>
           <p>
-            Once you have logged in you should be able to click in{' '}
+            Once you have logged in you should be able to click in{" "}
             <i>Profile</i> and <i>Logout</i>
           </p>
         </>
       )}
 
       {user && (
-        <>
-          <h4>Rendered user info on the client</h4>
+        <div className="p-4 shadow rounded bg-white">
+          <h1 className="text-5xl font-bold text-purple-500">
+            Hello world!!!!
+          </h1>
           <img src={user.picture} alt="user picture" />
-          <p>nickname: {user.nickname}</p>
-          <p>name: {user.name}</p>
-        </>
+          <p className="text-gray-500">with Tailwind CSS</p>
+          <p className="text-gray-500">nickname: {user.nickname}</p>
+          <p className="text-gray-500">name: {user.name}</p>
+        </div>
       )}
     </Layout>
-  )
+  );
 }
 
-export default Home
+export default Home;

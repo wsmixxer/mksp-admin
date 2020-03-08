@@ -1,8 +1,8 @@
-import Link from 'next/link'
+import Link from "next/link";
 
 function Header({ user, loading }) {
   return (
-    <header>
+    <header className="bg-gray-700">
       <nav>
         <ul>
           <li>
@@ -75,7 +75,7 @@ function Header({ user, loading }) {
         }
       `}</style>
     </header>
-  )
+  );
 }
 
-export default Header
+export default Header;
