@@ -70,6 +70,11 @@ function Layout({ user, loading = false, children }) {
           </div>
         </main>
       </div>
+      <style jsx global>{`
+        body {
+          margin: 0;
+        }
+      `}</style>
     </div>
   );
 }
