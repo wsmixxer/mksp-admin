@@ -1,6 +1,6 @@
-import React from "./node_modules/react";
-import Link from "./node_modules/next/link";
-import { useRouter } from "./node_modules/next/router";
+import React from "react";
+import Link from "next/link";
+import { useRouter } from "next/router";
 
 export default ({ href, children }) => {
   const router = useRouter();

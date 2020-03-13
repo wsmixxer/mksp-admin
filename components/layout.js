@@ -1,6 +1,6 @@
 import Head from "next/head";
-import Sidebar from "./sidebar";
-import Toolbar from "./toolbar";
+import Sidebar from "./Menu/Sidebar";
+import Toolbar from "./Toolbar";
 
 let sidebarOpen = false;
 
