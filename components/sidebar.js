@@ -188,7 +188,7 @@ function Sidebar({ user, loading, sidebarOpen, toggleSidebar }) {
             <div className="flex items-center flex-shrink-0 px-4">
               <img
                 className="w-auto"
-                src="../static/full-mixxer-white.png"
+                src="./public/img/full-mixxer-white.png"
                 alt="WS Mixxer"
               />
             </div>
