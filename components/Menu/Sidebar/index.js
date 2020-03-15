@@ -1,3 +1,4 @@
+import { classnames } from "tailwindcss-classnames";
 import FullscreenLink from "../FullscreenLink";
 import SmallscreenLink from "../SmallscreenLink";
 import {
@@ -48,28 +49,67 @@ const links = [
   }
 ];
 
-function Sidebar({ user, loading, sidebarOpen, toggleSidebar }) {
+function Sidebar({ user, loading, isMenuOpen, setIsMenuOpen }) {
   return (
     <header>
       {/* Off-canvas menu for mobile */}
       <div className="md:hidden">
         <div
-          onClick={toggleSidebar}
-          className="fixed inset-0 z-30 transition-opacity duration-300 ease-linear bg-gray-600 opacity-0 pointer-events-none"
-        ></div>
-        <div className="fixed inset-y-0 left-0 z-40 flex flex-col w-full max-w-xs duration-300 ease-in-out transform -translate-x-full bg-gray-800">
-          <div
-            className={
-              ("absolute top-0 right-0 p-1 -mr-14 ",
-              sidebarOpen ? "display: block" : "display: hidden")
+          onClick={() => setIsMenuOpen(false)}
+          className={classnames(
+            "bg-gray-600",
+            "duration-300",
+            "ease-linear",
+            "fixed",
+            "inset-0",
+            "opacity-0",
+            "pointer-events-none",
+            "transition-opacity",
+            "z-30",
+            {
+              "opacity-75 pointer-events-auto": isMenuOpen === true,
+              "opacity-0 pointer-events-none": isMenuOpen === false
             }
+          )}
+        ></div>
+        <div
+          className={classnames(
+            "bg-gray-800",
+            "duration-300",
+            "ease-in-out transform",
+            "fixed",
+            "flex",
+            "flex-col",
+            "inset-y-0",
+            "left-0",
+            "max-w-xs",
+            "w-full",
+            "z-40",
+            {
+              "translate-x-0": isMenuOpen === true,
+              "-translate-x-full": isMenuOpen == false
+            }
+          )}
+        >
+          <div
+            className={classnames(
+              "absolute",
+              "top-0",
+              "right-0",
+              "p-1",
+              "-mr-14",
+              {
+                "display: block": isMenuOpen === true,
+                "display: hidden": isMenuOpen == false
+              }
+            )}
           >
             <button
-              onClick={toggleSidebar}
+              onClick={() => setIsMenuOpen(false)}
               className="flex items-center justify-center w-12 h-12 rounded-full focus:outline-none focus:bg-gray-600"
             >
               <svg
-                className="w-6 h-6 text-white"
+                className={classnames("w-6", "h-6", "text-white")}
                 stroke="currentColor"
                 fill="none"
                 viewBox="0 0 24 24"
@@ -86,8 +126,8 @@ function Sidebar({ user, loading, sidebarOpen, toggleSidebar }) {
           <div className="flex-1 h-0 pt-5 pb-4 overflow-y-auto">
             <div className="flex items-center flex-shrink-0 px-4">
               <img
-                className="w-auto h-8"
-                src="/img/logos/workflow-logo-on-dark.svg"
+                className="w-auto h-auto pr-15"
+                src="/img/text-mixxer-white.png"
                 alt="Workflow"
               />
             </div>

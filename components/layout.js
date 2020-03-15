@@ -1,14 +1,11 @@
+import React, { useState } from "react";
 import Head from "next/head";
 import Sidebar from "./Menu/Sidebar";
 import Toolbar from "./Toolbar";
 
-let sidebarOpen = false;
-
-const toggleSidebar = () => {
-  return (sidebarOpen = !sidebarOpen);
-};
-
 function Layout({ user, loading = false, children }) {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   return (
     <div className="flex h-screen overflow-hidden bg-gray-100">
       <Head>
@@ -18,14 +15,14 @@ function Layout({ user, loading = false, children }) {
       <Sidebar
         user={user}
         loading={loading}
-        sidebarOpen={sidebarOpen}
-        toggleSidebar={toggleSidebar}
+        isMenuOpen={isMenuOpen}
+        setIsMenuOpen={setIsMenuOpen}
       />
 
       <div class="flex flex-col w-0 flex-1 overflow-hidden">
         <div class="md:hidden pl-1 pt-1 sm:pl-3 sm:pt-3">
           <button
-            onClick={toggleSidebar}
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
             class="-ml-0.5 -mt-0.5 h-12 w-12 inline-flex items-center justify-center rounded-md text-gray-500 hover:text-gray-900 focus:outline-none focus:bg-gray-200 transition ease-in-out duration-150"
           >
             <svg
@@ -47,8 +44,8 @@ function Layout({ user, loading = false, children }) {
         <Toolbar
           user={user}
           loading={loading}
-          sidebarOpen={sidebarOpen}
-          toggleSidebar={toggleSidebar}
+          isMenuOpen={isMenuOpen}
+          setIsMenuOpen={setIsMenuOpen}
         />
 
         <main
