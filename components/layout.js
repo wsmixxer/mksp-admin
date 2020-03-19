@@ -50,8 +50,8 @@ function Layout({ user, loading = false, children }) {
 
         <main
           class="flex-1 relative z-0 overflow-y-auto pt-2 pb-6 focus:outline-none md:py-6"
-          tabindex="0"
-          x-data
+          tabIndex="0"
+          x-data="true"
           x-init="$el.focus()"
         >
           <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

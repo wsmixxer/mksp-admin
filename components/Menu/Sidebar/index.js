@@ -57,15 +57,7 @@ function Sidebar({ user, loading, isMenuOpen, setIsMenuOpen }) {
         <div
           onClick={() => setIsMenuOpen(false)}
           className={classnames(
-            "bg-gray-600",
-            "duration-300",
-            "ease-linear",
-            "fixed",
-            "inset-0",
-            "opacity-0",
-            "pointer-events-none",
-            "transition-opacity",
-            "z-30",
+            "bg-gray-600 duration-300 ease-linear fixed inset-0 opacity-0 pointer-events-none transition-opacity z-30",
             {
               "opacity-75 pointer-events-auto": isMenuOpen === true,
               "opacity-0 pointer-events-none": isMenuOpen === false
@@ -74,17 +66,7 @@ function Sidebar({ user, loading, isMenuOpen, setIsMenuOpen }) {
         ></div>
         <div
           className={classnames(
-            "bg-gray-800",
-            "duration-300",
-            "ease-in-out transform",
-            "fixed",
-            "flex",
-            "flex-col",
-            "inset-y-0",
-            "left-0",
-            "max-w-xs",
-            "w-full",
-            "z-40",
+            "bg-gray-800 duration-300 ease-in-out transform fixed flex flex-col inset-y-0 left-0 max-w-xs w-full z-40",
             {
               "translate-x-0": isMenuOpen === true,
               "-translate-x-full": isMenuOpen == false
@@ -92,24 +74,17 @@ function Sidebar({ user, loading, isMenuOpen, setIsMenuOpen }) {
           )}
         >
           <div
-            className={classnames(
-              "absolute",
-              "top-0",
-              "right-0",
-              "p-1",
-              "-mr-14",
-              {
-                "display: block": isMenuOpen === true,
-                "display: hidden": isMenuOpen == false
-              }
-            )}
+            className={classnames("absolute top-0 right-0 p-1 -mr-14", {
+              "display: block": isMenuOpen === true,
+              "display: hidden": isMenuOpen == false
+            })}
           >
             <button
               onClick={() => setIsMenuOpen(false)}
               className="flex items-center justify-center w-12 h-12 rounded-full focus:outline-none focus:bg-gray-600"
             >
               <svg
-                className={classnames("w-6", "h-6", "text-white")}
+                className="w-6 h-6 text-white"
                 stroke="currentColor"
                 fill="none"
                 viewBox="0 0 24 24"
@@ -136,7 +111,7 @@ function Sidebar({ user, loading, isMenuOpen, setIsMenuOpen }) {
                 const IconTag = link.icon;
                 return (
                   <SmallscreenLink href={link.href}>
-                    <IconTag className="w-6 h-6 mr-4 text-gray-300 transition duration-150 ease-in-out group-hover:text-gray-300 group-focus:text-gray-300" />
+                    <IconTag className="w-6 h-6 mr-4 text-gray-400 transition duration-150 ease-in-out group-hover:text-gray-300 group-focus:text-gray-300" />
                     {link.label}
                   </SmallscreenLink>
                 );
@@ -184,7 +159,7 @@ function Sidebar({ user, loading, isMenuOpen, setIsMenuOpen }) {
                 const IconTag = link.icon;
                 return (
                   <FullscreenLink href={link.href}>
-                    <IconTag className="w-6 h-6 mr-3 text-gray-300 transition duration-150 ease-in-out group-hover:text-gray-300 group-focus:text-gray-300" />
+                    <IconTag className="w-6 h-6 mr-3 text-gray-400 transition duration-150 ease-in-out group-hover:text-gray-300 group-focus:text-gray-300" />
                     {link.label}
                   </FullscreenLink>
                 );
@@ -192,28 +167,35 @@ function Sidebar({ user, loading, isMenuOpen, setIsMenuOpen }) {
             </nav>
           </div>
           <div className="flex flex-shrink-0 p-4 bg-gray-700">
-            <a
-              href="#"
-              className="flex-shrink-0 block group focus:outline-none"
-            >
-              <div className="flex items-center">
-                <div>
-                  <img
-                    className="inline-block rounded-full h-9 w-9"
-                    src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                    alt=""
-                  />
+            {!loading &&
+              (user ? (
+                <div className="flex-shrink-0 block group focus:outline-none">
+                  <div className="flex items-center">
+                    <a href="/profile">
+                      <img
+                        className="inline-block rounded-full h-9 w-9"
+                        src={user.picture}
+                        alt=""
+                      />
+                    </a>
+                    <div className="ml-3">
+                      <p className="text-sm font-medium leading-5 text-white">
+                        {user.name}
+                      </p>
+                      <a
+                        href="/api/logout"
+                        className="text-xs font-medium leading-4 text-gray-400 transition duration-150 ease-in-out group-hover:text-gray-300 group-focus:underline"
+                      >
+                        Logout
+                      </a>
+                    </div>
+                  </div>
                 </div>
-                <div className="ml-3">
-                  <p className="text-sm font-medium leading-5 text-white">
-                    Tom Cook
-                  </p>
-                  <p className="text-xs font-medium leading-4 text-gray-400 transition duration-150 ease-in-out group-hover:text-gray-300 group-focus:underline">
-                    View profile
-                  </p>
-                </div>
-              </div>
-            </a>
+              ) : (
+                <p className="text-sm font-medium leading-5 text-white">
+                  <a href="/api/login">Login</a>
+                </p>
+              ))}
           </div>
         </div>
       </div>
