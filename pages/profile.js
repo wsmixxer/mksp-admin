@@ -20,8 +20,6 @@ function ProfileCard({ user }) {
 function Profile() {
   let { user, loading } = useContext(AuthContext);
 
-  console.log("profile.js", "Profile", "user", user);
-
   return (
     <Layout>{loading ? <>Loading...</> : <ProfileCard user={user} />}</Layout>
   );

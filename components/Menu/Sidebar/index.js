@@ -114,7 +114,7 @@ const Sidebar = ({ isMenuOpen, setIsMenuOpen }) => {
               {links.map(link => {
                 const IconTag = link.icon;
                 return (
-                  <SmallscreenLink href={link.href}>
+                  <SmallscreenLink key={link.href} href={link.href}>
                     <IconTag className="w-6 h-6 mr-4 text-gray-400 transition duration-150 ease-in-out group-hover:text-gray-300 group-focus:text-gray-300" />
                     {link.label}
                   </SmallscreenLink>
@@ -162,7 +162,7 @@ const Sidebar = ({ isMenuOpen, setIsMenuOpen }) => {
               {links.map(link => {
                 const IconTag = link.icon;
                 return (
-                  <FullscreenLink href={link.href}>
+                  <FullscreenLink key={link.href} href={link.href}>
                     <IconTag className="w-6 h-6 mr-3 text-gray-400 transition duration-150 ease-in-out group-hover:text-gray-300 group-focus:text-gray-300" />
                     {link.label}
                   </FullscreenLink>
