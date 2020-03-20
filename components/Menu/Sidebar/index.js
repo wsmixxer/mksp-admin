@@ -1,3 +1,5 @@
+import { AuthContext } from "../../../lib/authProvider";
+import { useContext } from "react";
 import { classnames } from "tailwindcss-classnames";
 import FullscreenLink from "../FullscreenLink";
 import SmallscreenLink from "../SmallscreenLink";
@@ -49,7 +51,9 @@ const links = [
   }
 ];
 
-function Sidebar({ user, loading, isMenuOpen, setIsMenuOpen }) {
+const Sidebar = ({ isMenuOpen, setIsMenuOpen }) => {
+  let { user, loading } = useContext(AuthContext);
+
   return (
     <header>
       {/* Off-canvas menu for mobile */}
@@ -201,6 +205,6 @@ function Sidebar({ user, loading, isMenuOpen, setIsMenuOpen }) {
       </div>
     </header>
   );
-}
+};
 
 export default Sidebar;

@@ -1,13 +1,10 @@
 import React from "react";
 
 import Layout from "../components/layout";
-import { useFetchUser } from "../lib/user";
 
 function About() {
-  const { user, loading } = useFetchUser();
-
   return (
-    <Layout user={user} loading={loading}>
+    <Layout>
       <h1>Shop Tools</h1>
       <p>
         This is the shop tools page, navigating between this page and{" "}

@@ -1,13 +1,16 @@
 import React from "react";
-
+import { useContext } from "react";
+import { AuthContext } from "../lib/authProvider";
 import Layout from "../components/layout";
-import { useFetchUser } from "../lib/user";
 
-function Home() {
-  const { user, loading } = useFetchUser();
+function Home({ SSRUser }) {
+  let { user, loading } = useContext(AuthContext);
+  if (SSRUser) {
+    user = SSRUser;
+  }
 
   return (
-    <Layout user={user} loading={loading}>
+    <Layout>
       {loading && <p>Loading login info...</p>}
 
       {!loading && !user && (
@@ -23,7 +26,7 @@ function Home() {
       )}
 
       {user && (
-        <div className="p-4 shadow rounded bg-white">
+        <div className="p-4 bg-white rounded shadow">
           <h1 className="text-5xl font-bold text-purple-500">
             Hello world!!!!
           </h1>

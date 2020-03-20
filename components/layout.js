@@ -3,7 +3,7 @@ import Head from "next/head";
 import Sidebar from "./Menu/Sidebar";
 import Toolbar from "./Toolbar";
 
-function Layout({ user, loading = false, children }) {
+function Layout({ children }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
@@ -12,12 +12,7 @@ function Layout({ user, loading = false, children }) {
         <title>Layout</title>
       </Head>
 
-      <Sidebar
-        user={user}
-        loading={loading}
-        isMenuOpen={isMenuOpen}
-        setIsMenuOpen={setIsMenuOpen}
-      />
+      <Sidebar isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
 
       <div class="flex flex-col w-0 flex-1 overflow-hidden">
         <div class="md:hidden pl-1 pt-1 sm:pl-3 sm:pt-3">
@@ -41,12 +36,7 @@ function Layout({ user, loading = false, children }) {
           </button>
         </div>
 
-        <Toolbar
-          user={user}
-          loading={loading}
-          isMenuOpen={isMenuOpen}
-          setIsMenuOpen={setIsMenuOpen}
-        />
+        <Toolbar isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
 
         <main
           class="flex-1 relative z-0 overflow-y-auto pt-2 pb-6 focus:outline-none md:py-6"

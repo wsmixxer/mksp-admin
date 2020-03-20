@@ -1,4 +1,4 @@
-function Toolbar({ user, loading, isMenuOpen, setIsMenuOpen }) {
+function Toolbar({ isMenuOpen, setIsMenuOpen }) {
   return (
     <div className="p-3 bg-white shadow">
       <div>

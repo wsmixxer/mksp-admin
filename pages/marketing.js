@@ -1,13 +1,10 @@
 import React from "react";
 
 import Layout from "../components/layout";
-import { useFetchUser } from "../lib/user";
 
 function About() {
-  const { user, loading } = useFetchUser();
-
   return (
-    <Layout user={user} loading={loading}>
+    <Layout>
       <h1>Marketing</h1>
       <p>
         This is the marketing page, navigating between this page and <i>Home</i>{" "}
