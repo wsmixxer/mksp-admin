@@ -2,7 +2,7 @@ import React from "react";
 
 import Layout from "../components/layout";
 
-function About() {
+function Events() {
   return (
     <Layout>
       <h1>About</h1>
@@ -15,4 +15,4 @@ function About() {
   );
 }
 
-export default About;
+export default Events;

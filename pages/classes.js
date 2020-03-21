@@ -2,7 +2,7 @@ import React from "react";
 
 import Layout from "../components/layout";
 
-function About() {
+function Classes() {
   return (
     <Layout>
       <h1>Classes</h1>
@@ -15,4 +15,4 @@ function About() {
   );
 }
 
-export default About;
+export default Classes;

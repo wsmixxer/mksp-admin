@@ -2,7 +2,7 @@ import React from "react";
 
 import Layout from "../components/layout";
 
-function About() {
+function AccessControl() {
   return (
     <Layout>
       <h1>Access Control</h1>
@@ -16,4 +16,4 @@ function About() {
   );
 }
 
-export default About;
+export default AccessControl;
