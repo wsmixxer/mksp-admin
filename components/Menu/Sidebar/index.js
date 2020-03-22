@@ -70,7 +70,7 @@ const Sidebar = ({ isMenuOpen, setIsMenuOpen }) => {
         ></div>
         <div
           className={classnames(
-            "bg-gray-800 duration-300 ease-in-out transform fixed flex flex-col inset-y-0 left-0 max-w-xs w-full z-40",
+            "bg-mixxer-caviar duration-300 ease-in-out transform fixed flex flex-col inset-y-0 left-0 max-w-xs w-full z-40",
             {
               "translate-x-0": isMenuOpen === true,
               "-translate-x-full": isMenuOpen == false
@@ -122,7 +122,7 @@ const Sidebar = ({ isMenuOpen, setIsMenuOpen }) => {
               })}
             </nav>
           </div>
-          <div className="flex flex-shrink-0 p-4 bg-gray-700">
+          <div className="flex flex-shrink-0 p-4 bg-gray-900">
             {!loading &&
               (user ? (
                 <div className="flex-shrink-0 block group">
@@ -158,7 +158,7 @@ const Sidebar = ({ isMenuOpen, setIsMenuOpen }) => {
 
       {/* Static sidebar for desktop */}
       <div className="hidden h-screen md:flex md:flex-shrink-0">
-        <div className="flex flex-col w-64 bg-gray-800">
+        <div className="flex flex-col w-64 bg-mixxer-caviar">
           <div className="flex flex-col flex-1 h-0 pt-5 pb-4 overflow-y-auto">
             <div className="flex items-center flex-shrink-0 px-4">
               <img
@@ -168,19 +168,19 @@ const Sidebar = ({ isMenuOpen, setIsMenuOpen }) => {
               />
             </div>
             {/* A Sidebar component, swap this element with another sidebar if you like */}
-            <nav className="flex-1 px-2 mt-5 bg-gray-800">
+            <nav className="flex-1 px-2 mt-5">
               {links.map(link => {
                 const IconTag = link.icon;
                 return (
                   <FullscreenLink key={link.href} href={link.href}>
-                    <IconTag className="w-6 h-6 mr-3 text-gray-400 transition duration-150 ease-in-out group-hover:text-gray-300 group-focus:text-gray-300" />
+                    <IconTag className="w-6 h-6 mr-3 text-gray-400 transition duration-150 ease-in-out group-hover:text-white group-focus:text-white" />
                     {link.label}
                   </FullscreenLink>
                 );
               })}
             </nav>
           </div>
-          <div className="flex flex-shrink-0 p-4 bg-gray-700">
+          <div className="flex flex-shrink-0 p-4 bg-gray-900">
             {!loading &&
               (user ? (
                 <div className="flex-shrink-0 block group focus:outline-none">

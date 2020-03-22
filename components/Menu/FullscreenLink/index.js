@@ -13,8 +13,8 @@ export default ({ href, children }) => {
         className={classnames(
           "flex mt-1 items-center px-2 py-2 text-base font-medium leading-6 transition duration-150 ease-in-out rounded-md group focus:outline-none focus:bg-gray-700",
           {
-            "text-white bg-gray-900": isActive === true,
-            "text-gray-300 hover:text-white hover:bg-gray-700 focus:text-white":
+            "text-white bg-mixxer-positive-red": isActive === true,
+            "text-gray-300 hover:text-white hover:bg-gray-800 focus:text-white":
               isActive == false
           }
         )}
