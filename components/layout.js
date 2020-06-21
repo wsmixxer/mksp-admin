@@ -65,7 +65,7 @@ function Layout({ children }) {
             </div>
 
             <main
-              className="relative z-0 flex-1 pt-2 pb-6 overflow-y-auto focus:outline-none md:py-6 bg-mixxer-caviar"
+              className="relative z-0 flex-1 pt-2 pb-6 overflow-y-auto bg-gray-200 focus:outline-none md:py-6"
               tabIndex="0"
             >
               {children}
