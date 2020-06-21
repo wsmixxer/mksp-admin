@@ -1,5 +1,5 @@
 import { createContext } from "react";
-import { useFetchUser } from "../lib/user";
+import { useFetchUser } from "../utils/user";
 export const AuthContext = createContext({ user: null, loading: false });
 
 function AuthProvider({ children }) {

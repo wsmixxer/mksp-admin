@@ -1,4 +1,4 @@
-import { AuthContext } from "../../../lib/authProvider";
+import { AuthContext } from "../../../utils/authProvider";
 import { useContext } from "react";
 import { classnames } from "tailwindcss-classnames";
 import FullscreenLink from "../FullscreenLink";
@@ -111,7 +111,7 @@ const Sidebar = ({ isMenuOpen, setIsMenuOpen }) => {
               />
             </div>
             <nav className="px-2 mt-5">
-              {links.map(link => {
+              {links.map((link) => {
                 const IconTag = link.icon;
                 return (
                   <SmallscreenLink key={link.href} href={link.href}>
@@ -169,7 +169,7 @@ const Sidebar = ({ isMenuOpen, setIsMenuOpen }) => {
             </div>
             {/* A Sidebar component, swap this element with another sidebar if you like */}
             <nav className="flex-1 px-2 mt-5">
-              {links.map(link => {
+              {links.map((link) => {
                 const IconTag = link.icon;
                 return (
                   <FullscreenLink key={link.href} href={link.href}>
