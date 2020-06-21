@@ -5,19 +5,19 @@ import Layout from "../components/layout";
 function Members() {
   return (
     <Layout>
-      <div class="bg-white shadow overflow-hidden sm:rounded-md sm:mx-5 max-w-5xl">
-        <div class="bg-white px-4 py-5 border-b border-gray-200 sm:px-6">
-          <div class="-ml-4 -mt-2 flex items-center justify-between flex-wrap sm:flex-no-wrap">
-            <div class="ml-4 mt-2">
-              <h3 class="text-lg leading-6 font-medium text-gray-900">
+      <div className="max-w-5xl overflow-hidden bg-white shadow sm:rounded-md sm:mx-5">
+        <div className="px-4 py-5 bg-white border-b border-gray-200 sm:px-6">
+          <div className="flex flex-wrap items-center justify-between -mt-2 -ml-4 sm:flex-no-wrap">
+            <div className="mt-2 ml-4">
+              <h3 className="text-lg font-medium leading-6 text-gray-900">
                 Members
               </h3>
             </div>
-            <div class="ml-4 mt-2 flex-shrink-0">
-              <span class="inline-flex rounded-md shadow-sm">
+            <div className="flex-shrink-0 mt-2 ml-4">
+              <span className="inline-flex rounded-md shadow-sm">
                 <button
                   type="button"
-                  class="relative inline-flex items-center px-4 py-2 border border-transparent text-sm leading-5 font-medium rounded-md text-white bg-mixxer-positive-red hover:bg-mixxer-cherry-red focus:outline-none focus:shadow-outline-indigo focus:border-indigo-700 active:bg-indigo-700"
+                  className="relative inline-flex items-center px-4 py-2 text-sm font-medium leading-5 text-white border border-transparent rounded-md bg-mixxer-positive-red hover:bg-mixxer-cherry-red focus:outline-none focus:shadow-outline-indigo focus:border-indigo-700 active:bg-indigo-700"
                 >
                   Create user
                 </button>
@@ -29,25 +29,25 @@ function Members() {
           <li>
             <a
               href="#"
-              class="block hover:bg-gray-50 focus:outline-none focus:bg-gray-50 transition duration-150 ease-in-out"
+              className="block transition duration-150 ease-in-out hover:bg-gray-50 focus:outline-none focus:bg-gray-50"
             >
-              <div class="flex items-center px-4 py-4 sm:px-6">
-                <div class="min-w-0 flex-1 flex items-center">
-                  <div class="flex-shrink-0">
+              <div className="flex items-center px-4 py-4 sm:px-6">
+                <div className="flex items-center flex-1 min-w-0">
+                  <div className="flex-shrink-0">
                     <img
-                      class="h-12 w-12 rounded-full"
+                      className="w-12 h-12 rounded-full"
                       src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
                       alt=""
                     />
                   </div>
-                  <div class="min-w-0 flex-1 px-4 md:grid md:grid-cols-2 md:gap-4">
+                  <div className="flex-1 min-w-0 px-4 md:grid md:grid-cols-2 md:gap-4">
                     <div>
-                      <div class="text-sm leading-5 font-medium text-indigo-600 truncate">
+                      <div className="text-sm font-medium leading-5 text-indigo-600 truncate">
                         Ricardo Cooper
                       </div>
-                      <div class="mt-2 flex items-center text-sm leading-5 text-gray-500">
+                      <div className="flex items-center mt-2 text-sm leading-5 text-gray-500">
                         <svg
-                          class="flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400"
+                          className="flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400"
                           fill="currentColor"
                           viewBox="0 0 20 20"
                         >
@@ -57,18 +57,20 @@ function Members() {
                             clipRule="evenodd"
                           />
                         </svg>
-                        <span class="truncate">ricardo.cooper@example.com</span>
+                        <span className="truncate">
+                          ricardo.cooper@example.com
+                        </span>
                       </div>
                     </div>
-                    <div class="hidden md:block">
+                    <div className="hidden md:block">
                       <div>
-                        <div class="text-sm leading-5 text-gray-900">
+                        <div className="text-sm leading-5 text-gray-900">
                           Applied on
                           <time dateTime="2020-01-07">January 7, 2020</time>
                         </div>
-                        <div class="mt-2 flex items-center text-sm leading-5 text-gray-500">
+                        <div className="flex items-center mt-2 text-sm leading-5 text-gray-500">
                           <svg
-                            class="flex-shrink-0 mr-1.5 h-5 w-5 text-green-400"
+                            className="flex-shrink-0 mr-1.5 h-5 w-5 text-green-400"
                             fill="currentColor"
                             viewBox="0 0 20 20"
                           >
@@ -86,7 +88,7 @@ function Members() {
                 </div>
                 <div>
                   <svg
-                    class="h-5 w-5 text-gray-400"
+                    className="w-5 h-5 text-gray-400"
                     fill="currentColor"
                     viewBox="0 0 20 20"
                   >
@@ -100,28 +102,28 @@ function Members() {
               </div>
             </a>
           </li>
-          <li class="border-t border-gray-200">
+          <li className="border-t border-gray-200">
             <a
               href="#"
-              class="block hover:bg-gray-50 focus:outline-none focus:bg-gray-50 transition duration-150 ease-in-out"
+              className="block transition duration-150 ease-in-out hover:bg-gray-50 focus:outline-none focus:bg-gray-50"
             >
-              <div class="flex items-center px-4 py-4 sm:px-6">
-                <div class="min-w-0 flex-1 flex items-center">
-                  <div class="flex-shrink-0">
+              <div className="flex items-center px-4 py-4 sm:px-6">
+                <div className="flex items-center flex-1 min-w-0">
+                  <div className="flex-shrink-0">
                     <img
-                      class="h-12 w-12 rounded-full"
+                      className="w-12 h-12 rounded-full"
                       src="https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
                       alt=""
                     />
                   </div>
-                  <div class="min-w-0 flex-1 px-4 md:grid md:grid-cols-2 md:gap-4">
+                  <div className="flex-1 min-w-0 px-4 md:grid md:grid-cols-2 md:gap-4">
                     <div>
-                      <div class="text-sm leading-5 font-medium text-indigo-600 truncate">
+                      <div className="text-sm font-medium leading-5 text-indigo-600 truncate">
                         Kristen Ramos
                       </div>
-                      <div class="mt-2 flex items-center text-sm leading-5 text-gray-500">
+                      <div className="flex items-center mt-2 text-sm leading-5 text-gray-500">
                         <svg
-                          class="flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400"
+                          className="flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400"
                           fill="currentColor"
                           viewBox="0 0 20 20"
                         >
@@ -131,18 +133,20 @@ function Members() {
                             clipRule="evenodd"
                           />
                         </svg>
-                        <span class="truncate">kristen.ramos@example.com</span>
+                        <span className="truncate">
+                          kristen.ramos@example.com
+                        </span>
                       </div>
                     </div>
-                    <div class="hidden md:block">
+                    <div className="hidden md:block">
                       <div>
-                        <div class="text-sm leading-5 text-gray-900">
+                        <div className="text-sm leading-5 text-gray-900">
                           Applied on
-                          <time datetime="2020-01-07">January 7, 2020</time>
+                          <time dateTime="2020-01-07">January 7, 2020</time>
                         </div>
-                        <div class="mt-2 flex items-center text-sm leading-5 text-gray-500">
+                        <div className="flex items-center mt-2 text-sm leading-5 text-gray-500">
                           <svg
-                            class="flex-shrink-0 mr-1.5 h-5 w-5 text-green-400"
+                            className="flex-shrink-0 mr-1.5 h-5 w-5 text-green-400"
                             fill="currentColor"
                             viewBox="0 0 20 20"
                           >
@@ -160,7 +164,7 @@ function Members() {
                 </div>
                 <div>
                   <svg
-                    class="h-5 w-5 text-gray-400"
+                    className="w-5 h-5 text-gray-400"
                     fill="currentColor"
                     viewBox="0 0 20 20"
                   >
@@ -174,28 +178,28 @@ function Members() {
               </div>
             </a>
           </li>
-          <li class="border-t border-gray-200">
+          <li className="border-t border-gray-200">
             <a
               href="#"
-              class="block hover:bg-gray-50 focus:outline-none focus:bg-gray-50 transition duration-150 ease-in-out"
+              className="block transition duration-150 ease-in-out hover:bg-gray-50 focus:outline-none focus:bg-gray-50"
             >
-              <div class="flex items-center px-4 py-4 sm:px-6">
-                <div class="min-w-0 flex-1 flex items-center">
-                  <div class="flex-shrink-0">
+              <div className="flex items-center px-4 py-4 sm:px-6">
+                <div className="flex items-center flex-1 min-w-0">
+                  <div className="flex-shrink-0">
                     <img
-                      class="h-12 w-12 rounded-full"
+                      className="w-12 h-12 rounded-full"
                       src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
                       alt=""
                     />
                   </div>
-                  <div class="min-w-0 flex-1 px-4 md:grid md:grid-cols-2 md:gap-4">
+                  <div className="flex-1 min-w-0 px-4 md:grid md:grid-cols-2 md:gap-4">
                     <div>
-                      <div class="text-sm leading-5 font-medium text-indigo-600 truncate">
+                      <div className="text-sm font-medium leading-5 text-indigo-600 truncate">
                         Ted Fox
                       </div>
-                      <div class="mt-2 flex items-center text-sm leading-5 text-gray-500">
+                      <div className="flex items-center mt-2 text-sm leading-5 text-gray-500">
                         <svg
-                          class="flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400"
+                          className="flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400"
                           fill="currentColor"
                           viewBox="0 0 20 20"
                         >
@@ -205,18 +209,18 @@ function Members() {
                             clipRule="evenodd"
                           />
                         </svg>
-                        <span class="truncate">ted.fox@example.com</span>
+                        <span className="truncate">ted.fox@example.com</span>
                       </div>
                     </div>
-                    <div class="hidden md:block">
+                    <div className="hidden md:block">
                       <div>
-                        <div class="text-sm leading-5 text-gray-900">
+                        <div className="text-sm leading-5 text-gray-900">
                           Applied on
-                          <time datetime="2020-01-07">January 7, 2020</time>
+                          <time dateTime="2020-01-07">January 7, 2020</time>
                         </div>
-                        <div class="mt-2 flex items-center text-sm leading-5 text-gray-500">
+                        <div className="flex items-center mt-2 text-sm leading-5 text-gray-500">
                           <svg
-                            class="flex-shrink-0 mr-1.5 h-5 w-5 text-green-400"
+                            className="flex-shrink-0 mr-1.5 h-5 w-5 text-green-400"
                             fill="currentColor"
                             viewBox="0 0 20 20"
                           >
@@ -234,7 +238,7 @@ function Members() {
                 </div>
                 <div>
                   <svg
-                    class="h-5 w-5 text-gray-400"
+                    className="w-5 h-5 text-gray-400"
                     fill="currentColor"
                     viewBox="0 0 20 20"
                   >
