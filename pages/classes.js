@@ -1,16 +1,12 @@
 import React from "react";
 
 import Layout from "../components/layout";
+import ComingSoon from "../components/ComingSoon";
 
 function Classes() {
   return (
     <Layout>
-      <h1>Classes</h1>
-      <p>
-        This is the classes page, navigating between this page and <i>Home</i>{" "}
-        is always pretty fast. However, when you navigate to the <i>Profile</i>{" "}
-        page it takes more time because it uses SSR to fetch the user first;
-      </p>
+      <ComingSoon />
     </Layout>
   );
 }
