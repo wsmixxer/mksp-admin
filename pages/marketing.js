@@ -1,21 +1,14 @@
 import React from "react";
 
 import Layout from "../components/layout";
-import { useFetchUser } from "../lib/user";
+import ComingSoon from "../components/ComingSoon";
 
-function About() {
-  const { user, loading } = useFetchUser();
-
+function Marketing() {
   return (
-    <Layout user={user} loading={loading}>
-      <h1>Marketing</h1>
-      <p>
-        This is the marketing page, navigating between this page and <i>Home</i>{" "}
-        is always pretty fast. However, when you navigate to the <i>Profile</i>{" "}
-        page it takes more time because it uses SSR to fetch the user first;
-      </p>
+    <Layout>
+      <ComingSoon />
     </Layout>
   );
 }
 
-export default About;
+export default Marketing;

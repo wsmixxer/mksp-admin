@@ -1,0 +1,14 @@
+import { createContext } from "react";
+import { useFetchUser } from "../utils/user";
+export const AuthContext = createContext({ user: null, loading: false });
+
+function AuthProvider({ children }) {
+  const { user, loading } = useFetchUser({ required: true });
+  return (
+    <AuthContext.Provider value={{ user, loading }}>
+      {children}
+    </AuthContext.Provider>
+  );
+}
+
+export default AuthProvider;
