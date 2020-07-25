@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { AuthContext } from "../utils/authProvider";
+import { AuthContext } from "../lib/authProvider";
 import { useContext } from "react";
 import Head from "next/head";
 import Sidebar from "./Menu/Sidebar";

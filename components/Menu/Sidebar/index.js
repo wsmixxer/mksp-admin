@@ -1,4 +1,4 @@
-import { AuthContext } from "../../../utils/authProvider";
+import { AuthContext } from "../../../lib/authProvider";
 import { useContext } from "react";
 import { classnames } from "tailwindcss-classnames";
 import FullscreenLink from "../FullscreenLink";
