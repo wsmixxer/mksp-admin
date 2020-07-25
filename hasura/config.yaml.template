@@ -1,0 +1,2 @@
+endpoint: https://hasura-thisapp-auth0-jwt.herokuapp.com
+admin_secret: xxxxxxxxx
