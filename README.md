@@ -1,100 +1,56 @@
-# Next.js and Auth0 Example
+# MKSP Makerspace Administration
 
-This example shows how you can use `@auth0/nextjs-auth` to easily add authentication support to your Next.js application.
+Open source software for managing your budding Makerspace
 
-Read more: [https://auth0.com/blog/ultimate-guide-nextjs-authentication-auth0/](https://auth0.com/blog/ultimate-guide-nextjs-authentication-auth0/)
+## Tech Stack
 
-### Using `create-next-app`
+- Next.js deployed on Vercel Now
+- Authentication through Auth0
+- Database and serverless functions through Hasura (hosted on Heroku)
 
-Execute [`create-next-app`](https://github.com/zeit/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init) or [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/) to bootstrap the example:
+## Setup
+
+Begin by cloning this repository
+
+### Auth0 Setup
+
+1. Create or log into your Auth0 account.
+1. Create a new regular web application.
+1. Copy your local repository `.env.example` file to `.env` and enter the Domain, Client ID, and Client Secret from your new Auth0 application's settings page.
+1. Add rules found in `auth0` folder (!Important! `upsert-user.js` should be listed before `hasura-jwt-claim.js` in Auth0 so that the rules are executed in the correct order, especially for first time logins).
+
+### Hasura Setup
+
+1. Click to deploy GraphQL Engine on Heroku with the free Postgres add-on:
+   [![Deploy to Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/hasura/graphql-engine-heroku)
+1. [Generate JWT secret](https://hasura.io/jwt-config/) and add it to Config Vars under Heroku settings using the variable name `HASURA_GRAPHQL_JWT_SECRET`.
+1. Pick a value for `HASURA_GRAPHQL_ADMIN_SECRET` and add the variable to Heroku's Config Vars.
+1. (Optional) add the `HASURA_GRAPHQL_UNAUTHORIZED_ROLE` var.
+1. Fill in local `hasura/config.yaml` file with:
+   - admin_secret: `HASURA_GRAPHQL_ADMIN_SECRET` value from Heroku
+   - endpoint: https://<yourappname>.herokuapp.com/
+1. Populate the hasura database:
 
 ```bash
-npm init next-app --example auth0 auth0
-# or
-yarn create next-app --example auth0 auth0
+ cd hasura
+ hasura migrate apply
 ```
 
-## Configuring Auth0
+### Finish Auth0 Setup
 
-1. Go to the [Auth0 dashboard](https://manage.auth0.com/) and create a new application of type _Regular Web Applications_ and make sure to configure the following
-2. Go to the settings page of the application
-3. Configure the following settings:
+1. Add values to the "global configuration object". Accessible through your Auth0 dashboard in the settings subheader under the Rules page.
+   - `HASURA_GRAPHQL_ADMIN_SECRET` (copy value from HASURA_GRAPHQL_ADMIN_SECRET in heroku)
+   - `HASURA_GRAPHQL_URL` (eg https://<yourappname>.herokuapp.com/v1/graphql)
+1. Fill out the callback and redirect URLs for your Auth0 app under Applications > (your application) > Settings.
 
-- _Allowed Callback URLs_: Should be set to `http://localhost:3000/api/callback` when testing locally or typically to `https://myapp.com/api/callback` when deploying your application.
-- _Allowed Logout URLs_: Should be set to `http://localhost:3000/` when testing locally or typically to `https://myapp.com/` when deploying your application.
+### Install Dependencies
 
-4. Save the settings
-
-### Configuring Next.js
-
-In the Next.js configuration file (`next.config.js`) you'll see that different environment variables are being assigned.
-
-### Local Development
-
-For local development you'll want to create a `.env` file with the necessary settings.
-
-The required settings can be found on the Auth0 application's settings page:
-
-```
-AUTH0_DOMAIN=YOUR_AUTH0_DOMAIN
-AUTH0_CLIENT_ID=YOUR_AUTH0_CLIENT_ID
-AUTH0_CLIENT_SECRET=YOUR_AUTH0_CLIENT_SECRET
-
-SESSION_COOKIE_SECRET=viloxyf_z2GW6K4CT-KQD_MoLEA2wqv5jWuq4Jd0P7ymgG5GJGMpvMneXZzhK3sL (at least 32 characters, used to encrypt the cookie)
-
-REDIRECT_URI=http://localhost:3000/api/callback
-POST_LOGOUT_REDIRECT_URI=http://localhost:3000/
+```bash
+ yarn install
+ yarn dev
 ```
 
-### Hosting on ZEIT Now
+## Deploy with Vercel now
 
-When deploying this example to ZEIT Now you'll want to update the `now.json` configuration file.
-
-```json
-{
-  "build": {
-    "env": {
-      "AUTH0_DOMAIN": "YOUR_AUTH0_DOMAIN",
-      "AUTH0_CLIENT_ID": "YOUR_AUTH0_CLIENT_ID",
-      "AUTH0_CLIENT_SECRET": "@auth0_client_secret",
-      "REDIRECT_URI": "https://my-website.now.sh/api/callback",
-      "POST_LOGOUT_REDIRECT_URI": "https://my-website.now.sh/",
-      "SESSION_COOKIE_SECRET": "@session_cookie_secret",
-      "SESSION_COOKIE_LIFETIME": 7200
-    }
-  }
-}
-```
-
-- `AUTH0_DOMAIN` - Can be found in the Auth0 dashboard under `settings`.
-- `AUTH0_CLIENT_ID` - Can be found in the Auth0 dashboard under `settings`.
-- `AUTH0_CLIENT_SECRET` - Can be found in the Auth0 dashboard under `settings`.
-- `REDIRECT_URI` - The url where Auth0 redirects back to, make sure a consistent url is used here.
-- `POST_LOGOUT_REDIRECT_URI` - Where to redirect after logging out
-- `SESSION_COOKIE_SECRET` - A unique secret used to encrypt the cookies, has to be at least 32 characters. You can use [this generator](https://generate-secret.now.sh/32) to generate a value.
-- `SESSION_COOKIE_LIFETIME` - How long a session lasts in seconds. The default is 2 hours.
-
-The `@auth0_client_secret` and `@session_cookie_secret` are [ZEIT Now environment secrets](https://zeit.co/docs/v2/environment-variables-and-secrets/)
-
-You can create the `@auth0_client_secret` by running:
-
-```
-now secrets add auth0_client_secret PLACE_YOUR_AUTH0_CLIENT_SECRET
-```
-
-And create the `session_cookie_secret` by generating a value [here](https://generate-secret.now.sh/32) and running:
-
-```
-now secrets add session_cookie_secret PLACE_YOUR_SESSION_COOKIE_SECRET
-```
-
-## About this sample
-
-This sample tries to cover a few topics:
-
-- Signing in
-- Signing out
-- Loading the user on the server side and adding it as part of SSR (`/pages/advanced/ssr-profile.js`)
-- Loading the user on the client side and using fast/cached SSR pages (`/pages/index.js`)
-- API Routes which can load the current user (`/pages/api/me.js`)
-- Using hooks to make the user available throughout the application (`/lib/user.js`)
+- Update `REDIRECT_URI` and `POST_LOGOUT_REDIRECT_URI` in the `now.json` file
+- add all the secrets (start with @ in the file) [with the cli](https://zeit.co/docs/v2/build-step/#using-environment-variables-and-secrets)
