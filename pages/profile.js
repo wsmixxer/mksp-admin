@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import Layout from "../components/layout";
-import { AuthContext } from "../utils/authProvider";
+import { AuthContext } from "../lib/authProvider";
 
 function ProfileCard({ user }) {
   return (

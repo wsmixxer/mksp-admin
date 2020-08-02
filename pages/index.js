@@ -1,6 +1,6 @@
 import React from "react";
 import { useContext } from "react";
-import { AuthContext } from "../utils/authProvider";
+import { AuthContext } from "../lib/authProvider";
 import Layout from "../components/layout";
 
 function Home({ SSRUser }) {

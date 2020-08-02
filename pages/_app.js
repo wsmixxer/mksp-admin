@@ -1,7 +1,7 @@
 import React from "react";
 import App from "next/app";
 import "../public/tailwind.css";
-import AuthProvider from "./../utils/authProvider";
+import AuthProvider from "./../lib/authProvider";
 
 class MyApp extends App {
   render() {
