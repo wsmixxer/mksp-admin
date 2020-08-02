@@ -1,0 +1,21 @@
+- table:
+    schema: public
+    name: age_group
+- table:
+    schema: public
+    name: check_in_record
+- table:
+    schema: public
+    name: facility
+- table:
+    schema: public
+    name: facility_zone
+- table:
+    schema: public
+    name: gender
+- table:
+    schema: public
+    name: member
+- table:
+    schema: public
+    name: race

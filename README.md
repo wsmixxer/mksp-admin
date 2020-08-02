@@ -19,7 +19,21 @@ Begin by cloning this repository
 1. Copy your local repository `.env.example` file to `.env` and enter the Domain, Client ID, and Client Secret from your new Auth0 application's settings page.
 1. Add rules found in `auth0` folder (!Important! `upsert-user.js` should be listed before `hasura-jwt-claim.js` in Auth0 so that the rules are executed in the correct order, especially for first time logins).
 
-### Hasura Setup
+### Hasura Testing/Development Setup
+
+1. Download and install docker ([Docker desktop](https://www.docker.com/products/docker-desktop) suggested)
+1. ```# in a new directory run
+   wget https://raw.githubusercontent.com/hasura/graphql-engine/stable/install-manifests/docker-compose/docker-compose.yaml
+   ```
+
+# or run
+
+curl https://raw.githubusercontent.com/hasura/graphql-engine/stable/install-manifests/docker-compose/docker-compose.yaml -o docker-compose.yml```
+
+1. Run Hasura and Postgres locally by running `docker-compose up -d`
+1. Head to `http://localhost:8080/console` to open your local Hasura console
+
+### Hasura Production Setup
 
 1. Click to deploy GraphQL Engine on Heroku with the free Postgres add-on:
    [![Deploy to Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/hasura/graphql-engine-heroku)
