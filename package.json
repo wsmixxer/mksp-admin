@@ -7,7 +7,7 @@
     "start": "next start"
   },
   "dependencies": {
-    "@auth0/nextjs-auth0": "^0.13.0",
+    "@auth0/nextjs-auth0": "^1.6.2",
     "@fullhuman/postcss-purgecss": "^2.3.0",
     "@tailwindcss/ui": "^0.1.4",
     "autoprefixer": "^9.8.1",
